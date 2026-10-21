@@ -38,3 +38,13 @@ about new mail. An invalid channel ID will log an error in console
 Some sub-commands have been made configurable, as a bit of an oversight root commands
 aren't currently configurable due to how commands have been implemented.
 
+
+## Deportation integration
+
+When Deportation 2.0 is enabled, deported players cannot execute PostmanPat slash
+commands. Checks use Deportation's cached service; existing LiteBans ban and
+warning checks remain in effect. Deportation is optional at runtime.
+
+Build with Gradle and an authorized local Deportation 2.0 JAR (it is not bundled):
+`gradle build -PdeportationJar=/path/to/Deportation-2.0.0.jar`. The default dependency
+path is `libs/Deportation-2.0.0.jar`. Do not commit dependency JARs.
