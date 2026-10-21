@@ -21,7 +21,13 @@ repositories {
     maven(url = "https://repo.extendedclip.com/releases/")
 }
 
+// Deportation does not publish a Maven artifact. Supply its authorized API JAR
+// locally; this dependency is never bundled into PostmanPat.
+val deportationJar = providers.gradleProperty("deportationJar")
+    .orElse("libs/Deportation-2.0.0.jar")
+
 dependencies {
+    compileOnly(files(deportationJar))
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
     compileOnly("com.discordsrv:discordsrv:1.29.0")
     compileOnly("net.dv8tion:JDA:4.4.0_352.fix-2")
